@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>LeadMark Landing page | Free Bootstrap 4.3.x landing page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + LeadMark main styles -->
+    <link rel="stylesheet" href="assets/css/leadmark.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background-color: #2c2c2c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER avec image */
+        header.header {
+            background: url("assets/imgs/header.jpg") no-repeat center center;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        /* Overlay avec un dégradé sombre pour lisibilité du texte */
+        header.header .overlay {
+            background: linear-gradient(to bottom, rgba(44, 44, 44, 0.4), rgba(44, 44, 44, 0.7));
+            padding: 120px 20px;
+            text-align: center;
+            color: white;
+        }
+
+
+        /* NAVBAR */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(8px);
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid #444;
+        }
+
+        .navbar .nav-link {
+            color: #f8f9fa !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ff3b3b !important;
+            text-shadow: 0 0 5px rgba(255, 59, 59, 0.5);
+        }
+
+        .navbar-brand {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffffff !important;
+            letter-spacing: 1px;
+        }
+
+        .navbar-toggler {
+            border-color: #ff3b3b;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,59,59, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+        }
+
+        /* SECTIONS */
+        .section {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            color: #bbb;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* BOUTONS */
+        .btn-danger {
+            background-color: #ff3b3b;
+            border-color: #ff3b3b;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #e33434;
+            border-color: #e33434;
+        }
+
+        .btn-outline-light {
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: #2c2c2c;
+        }
+
+        /* AUTRES */
+        .text-white {
+            color: white !important;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+        }
+
+        .rounded-pill {
+            border-radius: 50rem;
+        }
+
+        .shape svg path {
+            fill: #2c2c2c !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(255, 59, 59, 0.2);
+        }
+
+        .card i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .card:hover i {
+            transform: scale(1.2);
+            color: #ff0000;
+        }
+
+        .experience-box {
+            background-color: #181818;
+            border-left: 3px solid #140000;
+            border-radius: 4px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+
+        .experience-box[open] {
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .experience-box ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #ddd;
+        }
+
+        .experience-box a.btn {
+            font-size: 0.9rem;
+            padding: 0.4rem 1rem;
+        }
+
+        .experience-box summary {
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            outline: none;
+            color: white;
+        }
+
+        .card-stage:focus-within {
+            outline: 2px solid rgb(255, 0, 0);
+            outline-offset: 2px;
+        }
+
+        .card-stage button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px red;
+        }
+
+        #Stages {
+            scroll-margin-top: 80px;
+            /* compense la hauteur de ta navbar */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .btn-custom {
+            background-color: #524f4dfa;
+            /* rouge doux */
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #c62828;
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-dark fixed-top shadow-sm">
+        <div class="container-fluid">
+            <!-- Nom bien à gauche -->
+            <a class="navbar-brand ml-3 text-white font-weight-bold" href="#">
+                James PIFFETEAU
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Liens bien à droite -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav text-uppercase mr-3">
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
+                    <a class="nav-link" href="#stage">Stages</a>
+                    <li class="nav-item"><a class="nav-link" href="#documents">DOCUMENTATION</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evaluations">Évaluations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#veille">Ma veille</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- End Of Second Navigation -->
+
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            <h1 class="subtitle">Portfolio BTS SIO SISR</h1>
+            <h1 class="title">James PIFFETEAU</h1>
+            <p class="text-white mt-4">
+                Étudiant en BTS SIO option SISR, spécialisé dans les technologies réseau,<br>
+                les infrastructures systèmes et la cybersécurité.
+            </p>
+            <!-- Le bouton a été supprimé ici -->
+        </div>
+
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path fill="#2c2c2c"
+                    d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z" />
+            </svg>
+        </div>
+    </header>
+
+
+    <!-- End Of Page Header -->
+
+    <!-- Service Section -->
+    <!-- ===== PROFIL ===== -->
+    <section id="profil" class="section py-5" style="background-color: #2c2c2c; padding-top: 80px; color: #f8f9fa;">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Photo à gauche -->
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <img src="assets/imgs/photo-profil.jpg" alt="Photo de profil" class="img-fluid rounded shadow">
+                </div>
+                <!-- Texte à droite -->
+                <div class="col-md-7 d-flex flex-column justify-content-center">
+                    <h2 class="section-title mb-3" style="color: white;">Profil</h2>
+                    <p class="mb-4">
+                        Je suis <strong>James PIFFETEAU</strong>, étudiant en <strong>BTS SIO option SISR</strong>.
+                        Passionné par les infrastructures réseau, la cybersécurité et l’administration système,
+                        je me forme activement pour devenir un professionnel polyvalent dans le domaine informatique.
+                    </p>
+                    <div>
+                        <a href="assets/CV-James-Piffeteau.pdf" target="_blank"
+                            class="btn btn-danger rounded-pill px-4 py-2 shadow-sm">
+                            <i class="ti-new-window mr-2"></i> Consulter mon CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End OF Service Section -->
+    <!-- ===== COMPÉTENCES TECHNIQUES (avec icônes animées) ===== -->
+    <section id="competences" class="section text-center" style="background-color: #1f1f1f;">
+        <div class="container">
+            <h2 class="section-title mb-3 text-white">Mes compétences techniques</h2>
+            <p class="section-subtitle mb-5 text-light">
+                Découvrez les outils et technologies que je maîtrise pour assurer la gestion, la supervision et
+                l’automatisation des environnements techniques.
+            </p>
+
+            <div class="row">
+                <!-- Carte 1 -->
+                <div class="col-md-3 mb-4">
+                    <div
+                        class="card bg-dark text-white h-100 shadow-sm p-4 rounded animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="mb-3">
+                            <i class="ti-server" style="font-size: 2rem;"></i>
+                        </div>
+                        <h5 class="mb-2">Virtualisation</h5>
+                        <p class="small">(VirtualBox, VMWare, Proxmox, AWS)</p>
+                        <p class="small">Création et gestion d’environnements virtuels adaptés aux besoins des projets.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Carte 2 -->
+                <div class="col-md-3 mb-4">
+                    <div
+                        class="card bg-dark text-white h-100 shadow-sm p-4 rounded animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="mb-3">
+                            <i class="ti-desktop" style="font-size: 2rem;"></i>
+                        </div>
+                        <h5 class="mb-2">Systèmes d’exploitation</h5>
+                        <p class="small">Windows Server, Linux</p>
+                        <p class="small">Administration, sécurité et optimisation des performances des systèmes.</p>
+                    </div>
+                </div>
+
+                <!-- Carte 3 -->
+                <div class="col-md-3 mb-4">
+                    <div
+                        class="card bg-dark text-white h-100 shadow-sm p-4 rounded animate__animated animate__fadeInUp animate__delay-3s">
+                        <div class="mb-3">
+                            <i class="ti-pulse" style="font-size: 2rem;"></i>
+                        </div>
+                        <h5 class="mb-2">Supervision</h5>
+                        <p class="small">GLPI, Zabbix, Grafana</p>
+                        <p class="small">Mise en place de solutions de supervision pour assurer disponibilité et
+                            performance.</p>
+                    </div>
+                </div>
+
+                <!-- Carte 4 -->
+                <div class="col-md-3 mb-4">
+                    <div
+                        class="card bg-dark text-white h-100 shadow-sm p-4 rounded animate__animated animate__fadeInUp animate__delay-4s">
+                        <div class="mb-3">
+                            <i class="ti-code" style="font-size: 2rem;"></i>
+                        </div>
+                        <h5 class="mb-2">Scripting</h5>
+                        <p class="small">PowerShell, Bash</p>
+                        <p class="small">Automatisation des tâches répétitives et simplification de l’administration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS animation animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <section id="stage" class="section text-white text-center" style="background-color: #1f1f1f;">
+        <div class="container">
+            <h2 class="section-title mb-3">Stages</h2>
+            <p class="section-subtitle mb-5 text-light">Parcours Professionnel</p>
+
+            <div class="row">
+                <!-- Stage 1 -->
+                <div class="col-md-6 mb-4">
+                    <details class="experience-box mb-3" style="border-left: 3px solid #0a0a0a;">
+                        <summary>
+                            <strong>Stage Technicien Systèmes et Réseaux</strong><br>
+                            <small>Genève – ELC FINANCIAL GROUP (2025)</small>
+                        </summary>
+
+                        <p class="mt-3"><em>Administration et Gestion des Systèmes</em></p>
+                        <ul>
+                            <li>Configuration d’un serveur Proxmox pour l’hébergement de divers services.</li>
+                            <li>Création et configuration d’un serveur Samba.</li>
+                            <li>Gestion d’un CRM et administration des accès.</li>
+                        </ul>
+                        <p class="mt-3"><em>Supervision et Sécurité</em></p>
+                        <ul>
+                            <li>Mise en place d’outils de supervision informatique.</li>
+                            <li>Déploiement d’une solution de dépannage des infrastructures.</li>
+                            <li>Gestion de NAS Synology pour le stockage et le partage.</li>
+                        </ul>
+                        <p class="mt-3"><em>Support et Maintenance</em></p>
+                        <ul>
+                            <li>Assistance aux utilisateurs et dépannage technique quotidien.</li>
+                        </ul>
+                        <li>Scripts PowerShell pour sécurisation des postes via les pare-feux.</li>
+                    </ul>
+                    <p class="mt-3"><em>Infrastructure Réseau et Stockage</em></p>
+                    <ul>
+                        <li>Analyse et refonte du plan d’adressage réseau.</li>
+                        <a href="assets/Attestation stage 2.pdf" target="_blank" class="btn btn-danger mt-2">Voir
+                            Attestation de Stage</a>
+                    </details>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="col-md-6 mb-4">
+                    <details class="experience-box mb-3" style="border-left: 3px solid #000000;">
+                        <summary><strong>Stage Support Réseaux</strong><br>
+                            <small>Annecy – IMPÉRIAL PALACE (2024)</small>
+                        </summary>
+                        <p class="mt-3"><em>Assistance Réseau & Gestion de l’infrastructure</em></p>
+                        <ul>
+                            <li>Participation à la gestion quotidienne des demandes d’assistance réseau et téléphonique.
+                            </li>
+                            <li>Utilisation de la plateforme <strong>NEO C</strong> pour l’organisation des utilisateurs
+                                et des files d’attente.</li>
+                            <li>Identification des utilisateurs à partir de leur numéro de poste pour interventions à
+                                distance.</li>
+                            <li>Supervision de l’état des chambres via le logiciel <strong>HMS</strong> :
+                            </li>
+                            <li>Traitement des tickets d’incident avec validation de la résolution :
+                                <ul>
+                                    <p>Consultation des informations (chambre, problème, statut)</p>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="assets/a" target="_blank" class="btn btn-danger mt-2">Voir Attestation de Stage</a>
+                    </details>
+                </div>
+    </section>
+        <!-- End OF About Section -->
+        <section id="documents" class="section text-white text-center" style="background-color: #1f1f1f;">
+            <div class="container">
+                <h2 class="section-title mb-3">Mes Documents</h2>
+                <p class="section-subtitle mb-5 text-light">Regroupe tous mes projets, stages, travaux et autres
+                    ressources
+                </p>
+
+                <div class="filters d-flex justify-content-center mb-4">
+                    <a href="#" data-filter="*" class="active btn btn-outline-light mx-2">Tous</a>
+                    <a href="#" data-filter=".projet" class="btn btn-outline-light mx-2">Projets</a>
+                    <a href="#" data-filter=".travail" class="btn btn-outline-light mx-2">Travaux</a>
+                    <a href="#" data-filter=".stage" class="btn btn-outline-light mx-2">Stages</a>
+                </div>
+
+                <div class="row portfolio-container">
+                    <!-- PROJETS -->
+                    <div class="col-md-4 portfolio-item projet">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Projet BMS</h5>
+                            <a href="assets/Projet BMS_.pdf" target="_blank" class="btn btn-custom btn-sm">Voir le
+                                document</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 portfolio-item projet">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Projet MDL</h5>
+                            <a href="assets/Projet MDL -James-PIFFETEAU.pdf" target="_blank"
+                                class="btn btn-custom btn-sm">Voir le document</a>
+
+                        </div>
+                    </div>
+
+                    <!-- TRAVAUX -->
+                    <div class="col-md-4 portfolio-item travail">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">FOG</h5>
+                            <a href="assets/FOG James PIFFETEAU.pdf" target="_blank" class="btn btn-custom btn-sm">Voir
+                                le
+                                document</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 portfolio-item travail">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Docker</h5>
+                            <a href="assets/_Docker PIFFETEAU James .pdf" target="_blank"
+                                class="btn btn-custom btn-sm">Voir
+                                le document</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 portfolio-item travail">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Wi-Fi / Netflix</h5>
+                            <a href="assets/Compte-rendu-WIFI-Netflix PIFFETEAU James.pdf" target="_blank"
+                                class="btn btn-custom btn-sm">Voir le document</a>
+                        </div>
+                    </div>
+
+                    <!-- STAGES -->
+                    <div class="col-md-4 portfolio-item stage">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Samba</h5>
+                            <a href="assets/Samba PIFFETEAU James.pdf" target="_blank"
+                                class="btn btn-custom btn-sm">Voir le
+                                document</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 portfolio-item stage">
+                        <div class="card bg-dark text-white shadow-sm p-4 rounded">
+                            <h5 class="mb-3">Kuma</h5>
+                            <a href="assets/Kuma PIFFETEAU James.pdf" target="_blank" class="btn btn-custom btn-sm">Voir
+                                le
+                                document</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section" id="blog">
+            <div class="container">
+                <h6 class="section-title mb-0 text-center">Latest Articles</h6>
+                <h6 class="section-subtitle mb-5 text-center">Architecto provident deserunt eveniet libero</h6>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card border-0 mb-4">
+                            <img src="assets/imgs/blog-1.jpg" alt="" class="card-img-top w-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Pariatur Omnis Harum quae sint.</h6>
+                                <p>Fuga quae ratione inventore Perferendis porro.</p>
+                                <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 mb-4">
+                            <img src="assets/imgs/blog-2.jpg" alt="" class="card-img-top w-100">
+                            <div class="card-body">
+                                <h6 class="card-title"> Harum Quae Porro</h5>
+                                    <p>Fuga quae ratione inventore Perferendis porro.</p>
+                                    <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 mb-4">
+                            <img src="assets/imgs/blog-3.jpg" alt="" class="card-img-top w-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Qui optio neque alias</h6>
+                                <p>Fuga quae ratione inventore Perferendis porro.</p>
+                                <a href="javascript:void(0)" class="small text-muted">Go To The Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Blog Section -->
+
+        <!-- Testmonial Section -->
+        <section class="section" id="testmonial">
+            <div class="container">
+                <h6 class="section-title text-center mb-0">Testmonials</h6>
+                <h6 class="section-subtitle mb-5 text-center">What Our Clients Says</h6>
+                <div class="row">
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-3">
+                                    <img class="mr-3" src="assets/imgs/avatar.jpg" alt="">
+                                    <div class="media-body">
+                                        <h6 class="mt-1 mb-0">John Doe</h6>
+                                        <small class="text-muted mb-0">Business Analyst</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim
+                                    modi, id dicta reiciendis itaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-3">
+                                    <img class="mr-3" src="assets/imgs/avatar-1.jpg" alt="">
+                                    <div class="media-body">
+                                        <h6 class="mt-1 mb-0">Maria Garcia</h6>
+                                        <small class="text-muted mb-0">Insurance Agent</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim
+                                    modi, id dicta reiciendis itaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-3">
+                                    <img class="mr-3" src="assets/imgs/avatar-2.jpg" alt="">
+                                    <div class="media-body">
+                                        <h6 class="mt-1 mb-0">Mason Miller</h6>
+                                        <small class="text-muted mb-0">Residential Appraiser</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim
+                                    modi, id dicta reiciendis itaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Testmonial Section -->
+
+        <!-- Contact Section -->
+        <section id="contact" class="section has-img-bg pb-0">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5 my-3">
+                        <h6 class="mb-0">Phone</h6>
+                        <p class="mb-4">+ 123-456-7890</p>
+
+                        <h6 class="mb-0">Address</h6>
+                        <p class="mb-4">12345 Fake ST NoWhere AB Country</p>
+
+                        <h6 class="mb-0">Email</h6>
+                        <p class="mb-0">info@website.com</p>
+                        <p></p>
+                    </div>
+                    <div class="col-md-7">
+                        <form>
+                            <h4 class="mb-4">Drop Us A Line</h4>
+                            <div class="form-row">
+                                <div class="form-group col-sm-4">
+                                    <input type="text" class="form-control text-white rounded-0 bg-transparent"
+                                        name="name" placeholder="Name">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <input type="email" class="form-control text-white rounded-0 bg-transparent"
+                                        name="Email" placeholder="Email">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <input type="text" class="form-control text-white rounded-0 bg-transparent"
+                                        name="subject" placeholder="Subject">
+                                </div>
+                                <div class="form-group col-12">
+                                    <textarea name="message" id="" cols="30" rows="4"
+                                        class="form-control text-white rounded-0 bg-transparent"
+                                        placeholder="Message"></textarea>
+
+                                </div>
+                                <div class="form-group col-12 mb-0">
+                                    <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Page Footer -->
+                <footer class="mt-5 py-4 border-top border-secondary">
+                    <p class="mb-0 small">&copy;
+                        <script>document.write(new Date().getFullYear())</script>, LeadMark Created By <a
+                            href="https://www.devcrud.com" target="_blank">DevCrud.</a> All rights reserved
+                    </p>
+                </footer>
+                <!-- End of Page Footer -->
+            </div>
+        </section>
+
+        <!-- core  -->
+        <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+        <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+        <!-- bootstrap 3 affix -->
+        <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+        <!-- Isotope -->
+        <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+
+        <!-- LeadMark js -->
+        <script src="assets/js/leadmark.js"></script>
+        <script>
+            $(document).ready(function () {
+                var $grid = $('.portfolio-container').isotope({
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
+
+                $('.filters a').click(function (e) {
+                    e.preventDefault();
+                    $('.filters a').removeClass('active');
+                    $(this).addClass('active');
+                    var filterValue = $(this).attr('data-filter');
+                    $grid.isotope({ filter: filterValue });
+                });
+
+                // Affiche tout par défaut
+                $grid.isotope({ filter: '*' });
+            });
+        </script>
+
+</body>
+
+</html>
